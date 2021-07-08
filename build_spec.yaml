@@ -30,18 +30,12 @@ steps:
       echo OCI_WORKSPACE_DIR: $OCI_WORKSPACE_DIR
       echo OCI_BUILD_STAGE_NAME: $OCI_BUILD_STAGE_NAME
       echo OCI_PRIMARY_SOURCE_NAME: $OCI_PRIMARY_SOURCE_NAME
-      apt-get ::install -y maven
       export minor_version=135
-      ls -lart
       echo "hello world"
-      cd /workspace
-      ls -lart
-      cd /workspace/Source1
       ls -lart
       git branch
       cat README.md > output1.txt
       echo "sdfs" >> output1.txt
-      cd /workspace/Source
       cd src/main/java/org/example/
       echo "commit7" > output.txt
       export $testEnv=test
