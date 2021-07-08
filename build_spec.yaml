@@ -61,22 +61,6 @@ steps:
           echo "Failure successfully handled"
         timeoutInSeconds: 400
         runAs: root
-  - type: Command
-    timeoutInSeconds: 400
-    name: "Fail Command"
-    command: |
-      python test.py
-    onFailure:
-      - type: Command
-        command: |
-          echo "Handling Failure"
-          echo "Failure successfully handled"
-        timeoutInSeconds: 400
-        runAs: root
-  - type: Command
-    timeoutInSeconds: 400
-    name: "trtdtd"
-    command: apt-get ::install -y maven
 
 outputArtifacts:
   - name: output1
