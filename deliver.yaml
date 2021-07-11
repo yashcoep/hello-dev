@@ -1,0 +1,76 @@
+version: 0.1
+component: build
+timeoutInSeconds: 6000
+runAs: root
+shell: bash
+env:
+  variables:
+    "testEnv" : "testValue1"
+    "testAnother": "testAnotherValue"
+  vaultVariables:
+    "vault_var": ocid1.vaultsecret.oc1.iad.amaaaaaa34lgq7aahszb2xcdpqfu66vkqi6j4tedwowxecoya2afh476vblq
+  exportedVariables:
+    - testEnv
+    - testAnother
+    - vault_var
+
+# inputArtifacts:
+#   - name: hello-dev-jar
+#     location: /workspace/Source1/hello123.class
+
+steps:
+  - type: Command
+    name: "Build Source"
+    timeoutInSeconds: 400
+    command: |
+      echo $testEnv
+      echo $testAnother
+      testAnother=7.0
+      export testEnv=10.0
+      export minor_version=135
+      echo "hello world"
+      ls -lart
+      git branch
+      df -h > output1.txt
+      cd src/main/java/org/example/
+      echo "commit7" > output.txt
+      javac HelloWorld.java
+    onFailure:
+      - type: Command
+        timeoutInSeconds: 400
+        command: |
+          echo "Handling Failure"
+          echo "Failure successfully handled"
+        timeoutInSeconds: 400
+        runAs: root
+  - type: Command
+    timeoutInSeconds: 400
+    name: "Dockerizer & Test"
+    command: |
+      docker build -t iad.ocir.io/id204we8d65n/balaregistry/hello-bala:1.0 .
+      docker run iad.ocir.io/id204we8d65n/balaregistry/hello-bala:1.0
+    onFailure:
+      - type: Command
+        command: |
+          echo "Handling Failure"
+          echo "Failure successfully handled"
+        timeoutInSeconds: 400
+        runAs: root
+
+outputArtifacts:
+  - name: output1
+    type: BINARY
+    location: ${OCI_WORKSPACE_DIR}/Source1/output1.txt
+#   - name: output
+#     type: BINARY
+#     location: src/main/java/org/example/output.txt
+#   - name: hello-dev-jar
+#     type: BINARY
+#     artifactParams:
+#       testKey: testVal
+#       testKey1: ${testEnv}
+#       testKey2: ${invalidVar}
+#     location: src/main/java/org/example/HelloWorld.class
+  - name: hello-dev-image
+    type: DOCKER_IMAGE
+    location: iad.ocir.io/id204we8d65n/balaregistry/hello-bala:1.0
