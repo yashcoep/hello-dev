@@ -9,9 +9,9 @@ env:
   exportedVariables:
     - testEnv
 
-# inputArtifacts:
-#   - name: hello-dev-jar
-#     location: /workspace/Source/hello123.class
+inputArtifacts:
+  - name: hello-dev-jar
+    location: /workspace/Source/hello123.class
 
 steps:
   - type: Command
@@ -64,7 +64,7 @@ steps:
 outputArtifacts:
   - name: output1
     type: BINARY
-    location: ${OCI_WORKSPACE_DIR}/Source1/output1.txt
+    location: ${OCI_WORKSPACE_DIR}/Source/output1.txt
 #   - name: output
 #     type: BINARY
 #     location: src/main/java/org/example/output.txt
