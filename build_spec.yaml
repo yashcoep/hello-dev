@@ -8,6 +8,7 @@ env:
     "testEnv" : "testValue1"
   exportedVariables:
     - testEnv
+    - push_result
 
 # inputArtifacts:
 #   - name: hello-dev-jar
@@ -51,7 +52,8 @@ steps:
     timeoutInSeconds: 400
     name: "Dockerizer & Test"
     command: |
-      docker build -t iad.ocir.io/id204we8d65n/balaregistry/hello-bala:1.0 .
+      docker build -t iad.ocir.io/id204we8d65n/balaregistry/hello-bala:1.0 . > test.txt
+      push_result=`cat ./test.txt`
       docker run iad.ocir.io/id204we8d65n/balaregistry/hello-bala:1.0
     onFailure:
       - type: Command
