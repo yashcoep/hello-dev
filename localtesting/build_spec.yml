@@ -8,6 +8,7 @@ env:
     "testEnv" : "testValue1"
   exportedVariables:
     - testEnv
+    - patch_number
 
 inputArtifacts:
   - name: hello-dev-jar
@@ -38,6 +39,7 @@ steps:
       df -h > output1.txt
       cd src/main/java/org/example/
       echo "commit7" > output.txt
+      patch_number=100
       javac HelloWorld.java
     onFailure:
       - type: Command
