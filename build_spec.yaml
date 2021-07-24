@@ -53,7 +53,7 @@ steps:
     name: "Dockerizer & Test"
     command: |
       docker build -t iad.ocir.io/id204we8d65n/balaregistry/hello-bala:1.0 . > test.txt
-      push_result=`cat ./test.txt`
+      push_result="hello world"
       docker run iad.ocir.io/id204we8d65n/balaregistry/hello-bala:1.0
     onFailure:
       - type: Command
