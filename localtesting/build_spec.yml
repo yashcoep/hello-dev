@@ -10,6 +10,8 @@ env:
     - testEnv
     - patch_number
     - build_Result
+    - test_env
+    - test_env1
 
 inputArtifacts:
   - name: hello-dev-jar
@@ -59,6 +61,8 @@ steps:
       build_Result=`cat build_Result.txt`
       cat build_Result.txt
       echo $build_Result
+      test_env=""abc" "bcd""
+      test_env1="\"abc\" \"bcd\""
     onFailure:
       - type: Command
         command: |
