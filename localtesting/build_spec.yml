@@ -57,6 +57,7 @@ steps:
       docker build -t iad.ocir.io/id204we8d65n/balaregistry/hello-bala:1.0 . > build_Result.txt
       docker run iad.ocir.io/id204we8d65n/balaregistry/hello-bala:1.0
       build_Result=`cat build_Result.txt`
+      echo $build_Result
     onFailure:
       - type: Command
         command: |
