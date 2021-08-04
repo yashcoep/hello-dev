@@ -56,7 +56,7 @@ steps:
       prevExitCode=$?   # capture the exit value of the previous command
       if [ $prevExitCode -ne 0 ]; then exit $prevExitCode; fi
       echo "printing exitcode: $prevExitCode"
-      push_result="hello world"
+      push_result=`cat test.txt`
       docker run iad.ocir.io/id204we8d65n/balaregistry/hello-bala:1.0
     onFailure:
       - type: Command
