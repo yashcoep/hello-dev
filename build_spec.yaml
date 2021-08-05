@@ -34,6 +34,7 @@ steps:
       echo OCI_BUILD_STAGE_NAME: $OCI_BUILD_STAGE_NAME
       echo OCI_PRIMARY_SOURCE_NAME: $OCI_PRIMARY_SOURCE_NAME
       export minor_version=135
+      export OCI_RESOURCE_PRINCIPAL_VERSION=2.2
       oci os ns get
       testEnv1=`oci os ns get`
       echo "hello world"
