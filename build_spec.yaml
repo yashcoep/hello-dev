@@ -9,6 +9,7 @@ env:
   exportedVariables:
     - testEnv
     - push_result
+    - testEnv1
 
 # inputArtifacts:
 #   - name: hello-dev-jar
@@ -33,7 +34,7 @@ steps:
       echo OCI_BUILD_STAGE_NAME: $OCI_BUILD_STAGE_NAME
       echo OCI_PRIMARY_SOURCE_NAME: $OCI_PRIMARY_SOURCE_NAME
       export minor_version=135
-      oci os ns get
+      testEnv1=`oci os ns get`
       echo "hello world"
       ls -lart
       git branch
