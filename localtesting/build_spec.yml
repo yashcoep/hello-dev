@@ -56,7 +56,7 @@ steps:
     timeoutInSeconds: 400
     name: "Dockerizer & Test"
     command: |
-      docker build -t iad.ocir.io/id204we8d65n/balaregistry/hello-bala:1.0 -f ../Dockerfile .. > build_Result.txt
+      docker build -t iad.ocir.io/id204we8d65n/balaregistry/hello-bala:1.0 . > build_Result.txt
       docker run iad.ocir.io/id204we8d65n/balaregistry/hello-bala:1.0
       build_Result=`cat build_Result.txt`
       cat build_Result.txt
