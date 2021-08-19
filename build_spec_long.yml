@@ -20,6 +20,8 @@ steps:
     name: "Build Source"
     timeoutInSeconds: 400
     command: |
+      docker pull couchbase
+      docker pull python
       mvn clean install
       echo $testEnv
       export testEnv=5.0
