@@ -20,6 +20,7 @@ steps:
     name: "Build Source"
     timeoutInSeconds: 400
     command: |
+      mvn clean install
       echo $testEnv
       export testEnv=5.0
       echo OCI_STAGE_ID: $OCI_STAGE_ID
@@ -43,7 +44,6 @@ steps:
       df -h > output1.txt
       cd src/main/java/org/example/
       echo "commit7" > output.txt
-      mvn clean install
       javac HelloWorld.java
     onFailure:
       - type: Command
