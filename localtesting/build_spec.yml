@@ -23,6 +23,7 @@ steps:
     timeoutInSeconds: 400
     command: |
       echo $testEnv
+      oci os ns get
       export testEnv=5.0
       echo OCI_STAGE_ID: $OCI_STAGE_ID
       echo OCI_PIPELINE_ID: $OCI_PIPELINE_ID
