@@ -38,6 +38,7 @@ steps:
       echo OCI_PRIMARY_SOURCE_NAME: $OCI_PRIMARY_SOURCE_NAME
       export minor_version=135
       export OCI_RESOURCE_PRINCIPAL_VERSION=2.2
+      oci artifacts generic artifact get --artifact-id ocid1.genericartifact.oc1.iad.0.amaaaaaa34lgq7aakerwvqyv3vifcjk4uw7f4vlt7mdff4ugdhjjhobiruja
       oci os ns get
       testEnv1=`oci os ns get`
       echo "hello world"
