@@ -16,9 +16,10 @@ steps:
     command: |
       mkdir -p /workspace/oci-cli
       echo $ociCliApiPrivateKey
-      printf %s "$ociCliApiPrivateKey" > /workspace/oci-cli/privateKey.pem
+      echo $ociCliApiPrivateKey | base64 --decode > /workspace/oci-cli/privateKey.pem
       echo $configFile
-      printf %s "$configFile" > /workspace/oci-cli/config
+      echo $configFile | base64 --decode > /workspace/oci-cli/config
       export OCI_CLI_AUTH=api_key
       export OCI_CLI_CONFIG_FILE=/workspace/oci-cli/config
       oci os ns get
+      echo "lets see!!"
