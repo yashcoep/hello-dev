@@ -1,0 +1,24 @@
+version: 0.1
+component: build
+timeoutInSeconds: 6000
+runAs: root
+shell: bash
+
+env:
+  vaultVariables:
+    configFile : ocid1.vaultsecret.oc1.iad.amaaaaaa34lgq7aa7w6s56k2ehdyri7xs5wqnyvoasfx27dbr5wb3tt74abq
+    ociCliApiPrivateKey : ocid1.vaultsecret.oc1.iad.amaaaaaa34lgq7aa4kcfbbs2ihdmaedldtyzo4oqichf6bwu7lqylkwb3kpq
+
+steps:
+  - type: Command
+    name: "setup oci cli with api key"
+    timeoutInSeconds: 400
+    command: |
+      mkdir -p /workspace/oci-cli
+      echo $ociCliApiPrivateKey
+      printf %s "$ociCliApiPrivateKey" > /workspace/oci-cli/privateKey.pem
+      echo $configFile
+      printf %s "$configFile" > /workspace/oci-cli/config
+      export OCI_CLI_AUTH=api_key
+      export OCI_CLI_CONFIG_FILE=/workspace/oci-cli/config
+      oci os ns get
