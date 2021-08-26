@@ -16,7 +16,7 @@ steps:
     command: |
       mkdir -p /workspace/oci-cli
       echo $ociCliApiPrivateKey
-      echo $ociCliApiPrivateKey | base64 --decode > /workspace/oci-cli/privateKey.pem
+      echo $ociCliApiPrivateKey | base64 --decode > /workspace/oci-cli/oci_api_key.pem
       echo $configFile
       echo $configFile | base64 --decode > /workspace/oci-cli/config
       export OCI_CLI_AUTH=api_key
