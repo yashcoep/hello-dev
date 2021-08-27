@@ -30,5 +30,5 @@ steps:
       echo "Testing the setup"
       oci os ns get
       echo "lets see!!"
-      echo "hello" > test.txt
-      cat test.txt
+      echo "hello" > test1.txt
+      cat test1.txt
