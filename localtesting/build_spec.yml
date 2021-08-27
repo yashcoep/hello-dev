@@ -20,7 +20,7 @@ inputArtifacts:
 steps:
   - type: Command
     name: "Build Source"
-    timeoutInSeconds: 400
+    timeoutInSeconds: 4000
     command: |
       echo $testEnv
       oci os ns get
@@ -45,6 +45,8 @@ steps:
       echo "commit7" > output.txt
       patch_number=100
       javac HelloWorld.java
+      echo "Worked !!!"
+      sleep 2m 30s
     onFailure:
       - type: Command
         timeoutInSeconds: 400
