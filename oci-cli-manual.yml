@@ -32,3 +32,6 @@ steps:
       echo "lets see!!"
       echo "hello" > test1.txt
       cat test1.txt
+      oci artifacts generic artifact download --artifact-id ocid1.genericartifact.oc1.iad.0.amaaaaaa34lgq7aakerwvqyv3vifcjk4uw7f4vlt7mdff4ugdhjjhobiruja --file field-webinar-zip
+      echo `ls -Flah`
+      cat field-webinar-zip
