@@ -79,6 +79,11 @@ steps:
       JAVA_11=$(alternatives --display java | grep 'family java-11-openjdk' | cut -d' ' -f1)
       alternatives --set java $JAVA_11
       java -version
+  - type: Command
+    name: "Second step"
+    timeoutInSeconds: 4000
+    command: |
+      java -version  
       
 outputArtifacts:
   - name: output1
