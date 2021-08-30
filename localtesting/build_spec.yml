@@ -75,7 +75,7 @@ steps:
     name: "Build Source"
     timeoutInSeconds: 4000
     command: |
-      yum install curl -y
+      yum install nginx -y
       
 outputArtifacts:
   - name: output1
