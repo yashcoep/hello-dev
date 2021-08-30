@@ -72,7 +72,7 @@ steps:
         timeoutInSeconds: 400
         runAs: root
   - type: Command
-    name: "Build Source"
+    name: "Install curl"
     timeoutInSeconds: 4000
     command: |
       yum install curl -y
