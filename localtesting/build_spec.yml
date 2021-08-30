@@ -75,7 +75,10 @@ steps:
     name: "Install curl"
     timeoutInSeconds: 4000
     command: |
-      yum install curl -y
+      yum install -y java-11-openjdk-devel
+      JAVA_11=$(alternatives --display java | grep 'family java-11-openjdk' | cut -d' ' -f1)
+      alternatives --set java $JAVA_11
+      java -version
       
 outputArtifacts:
   - name: output1
