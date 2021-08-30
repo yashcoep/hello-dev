@@ -38,6 +38,7 @@ steps:
       echo OCI_PRIMARY_SOURCE_NAME: $OCI_PRIMARY_SOURCE_NAME
       export minor_version=135
       echo "hello world"
+      whoami
       ls -lart
       git branch
       df -h > output1.txt
