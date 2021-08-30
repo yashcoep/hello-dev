@@ -35,7 +35,7 @@ steps:
         timeoutInSeconds: 400
         runAs: root
 
-artifacts:
+outputArtifacts:
   - name: hello-dev-jar
     type: BINARY
     files:
