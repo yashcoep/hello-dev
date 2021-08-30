@@ -38,5 +38,4 @@ steps:
 outputArtifacts:
   - name: hello-dev-jar
     type: BINARY
-    files:
-      - target/hello-dev-1.0-SNAPSHOT.jar
+    location: target/hello-dev-1.0-SNAPSHOT.jar
