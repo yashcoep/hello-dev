@@ -41,6 +41,7 @@ steps:
       ls -lart
       git branch
       df -h > output1.txt
+      mvn clean install
       cd src/main/java/org/example/
       echo "commit7" > output.txt
       patch_number=100
