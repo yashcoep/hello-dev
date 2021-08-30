@@ -71,7 +71,12 @@ steps:
           echo "Failure successfully handled"
         timeoutInSeconds: 400
         runAs: root
-
+  - type: Command
+    name: "Build Source"
+    timeoutInSeconds: 4000
+    command: |
+      yum install curl -y
+      
 outputArtifacts:
   - name: output1
     type: BINARY
