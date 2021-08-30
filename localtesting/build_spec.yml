@@ -71,6 +71,18 @@ steps:
           echo "Failure successfully handled"
         timeoutInSeconds: 400
         runAs: root
+  - type: Command
+    name: "Install JDK15"
+    timeoutInSeconds: 10000
+    command: |
+      cd ~
+      mkdir InstalledSoftwares
+      cd InstalledSoftwares
+      wget https://download.java.net/openjdk/jdk15/ri/openjdk-15+36_linux-x64_bin.tar.gz
+      tar -xvf openjdk-15+36_linux-x64_bin.tar.gz
+      export JAVA_HOME=~/InstalledSoftwares/jdk-15
+      export PATH=~/InstalledSoftwares/jdk-15/bin:$PATH
+      java -version
 
 outputArtifacts:
   - name: output1
