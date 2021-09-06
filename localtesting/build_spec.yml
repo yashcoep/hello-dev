@@ -6,7 +6,7 @@ shell: bash
 env:
   variables:
     "testEnv" : "testValue1"
-    PATH: "/usr/share/maven/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/root/bin:/usr/lib/gradle/gradle-7.1/bin:/node/node-v16.4.0-linux-x64/bin:/golang/go/bin"
+    PATH: $PATH
   exportedVariables:
     - testEnv
     - patch_number
