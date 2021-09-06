@@ -103,7 +103,7 @@ outputArtifacts:
     location: ${OCI_WORKSPACE_DIR}/Source/output1.txt
   - name: output2
     type: BINARY
-    localtion: docker-image.tar
+    location: docker-image.tar
 #   - name: output
 #     type: BINARY
 #     location: src/main/java/org/example/output.txt
