@@ -22,6 +22,7 @@ steps:
     name: "Build Source"
     timeoutInSeconds: 4000
     command: |
+      echo $PATH
       echo $testEnv
       oci os ns get
       export testEnv=5.0
