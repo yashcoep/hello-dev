@@ -6,6 +6,7 @@ shell: bash
 env:
   variables:
     "testEnv" : "testValue1"
+    PATH: ""
   exportedVariables:
     - testEnv
     - patch_number
@@ -22,6 +23,9 @@ steps:
     name: "Build Source"
     timeoutInSeconds: 4000
     command: |
+      echo $PATH
+      PATH=$PATH:/test
+      echo "-----------------------"
       echo $PATH
       echo $testEnv
       oci os ns get
@@ -64,6 +68,8 @@ steps:
     name: "Dockerizer & Test"
     command: |
       docker build -t iad.ocir.io/id204we8d65n/balaregistry/hello-bala:1.0 . > build_Result.txt
+      echo "-----------------------"
+      echo $PATH
       docker run iad.ocir.io/id204we8d65n/balaregistry/hello-bala:1.0
       build_Result=`cat build_Result.txt`
       cat build_Result.txt
