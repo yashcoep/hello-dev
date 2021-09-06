@@ -89,6 +89,7 @@ steps:
       yum install -y java-11-openjdk-devel
       JAVA_11=$(alternatives --display java | grep 'family java-11-openjdk' | cut -d' ' -f1)
       alternatives --set java $JAVA_11
+      docker save iad.ocir.io/id204we8d65n/balaregistry/hello-bala:1.0 -o docker-image.tar
       java -version
   - type: Command
     name: "Second step"
@@ -100,6 +101,9 @@ outputArtifacts:
   - name: output1
     type: BINARY
     location: ${OCI_WORKSPACE_DIR}/Source/output1.txt
+  - name: output2
+    type: BINARY
+    localtion: docker-image.tar
 #   - name: output
 #     type: BINARY
 #     location: src/main/java/org/example/output.txt
