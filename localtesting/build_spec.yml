@@ -96,6 +96,12 @@ steps:
     timeoutInSeconds: 4000
     command: |
       java -version  
+  - type: Command
+    name: "Second step"
+    timeoutInSeconds: 4000
+    command: |
+      chmod -R 777 /workspace
+      ls -lart
       
 outputArtifacts:
   - name: output1
