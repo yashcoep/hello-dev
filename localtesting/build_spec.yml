@@ -6,6 +6,7 @@ shell: bash
 env:
   variables:
     "testEnv" : "testValue1"
+    "PATH": "sdfjknfd"
   exportedVariables:
     - testEnv
     - patch_number
