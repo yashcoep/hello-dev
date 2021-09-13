@@ -24,3 +24,4 @@ steps:
       date
       echo "NODE VERSION: $(node -v)"
       echo "NPM VERSION: $(npm -v)"
+      df -h
