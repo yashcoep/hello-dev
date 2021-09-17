@@ -3,34 +3,47 @@
 { # this ensures the entire script is downloaded #
 
 nvm_has() {
+  echo "nvm_has"
   type "$1" > /dev/null 2>&1
+  echo "nvm_has"
 }
 
 nvm_echo() {
+  echo "nvm_echo"
   command printf %s\\n "$*" 2>/dev/null
+  echo "nvm_echo"
 }
 
 nvm_grep() {
+  echo "nvm_grep"
   GREP_OPTIONS='' command grep "$@"
+  echo "nvm_grep"
 }
 
 nvm_default_install_dir() {
+  echo "nvm_default_install_dir"
   [ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm"
+  echo "nvm_default_install_dir"
 }
 
 nvm_install_dir() {
+  echo "nvm_install_dir"
   if [ -n "$NVM_DIR" ]; then
     printf %s "${NVM_DIR}"
   else
     nvm_default_install_dir
   fi
+  echo "nvm_install_dir"
 }
 
 nvm_latest_version() {
+  echo "nvm_latest_version"
   nvm_echo "v0.38.0"
+  echo "nvm_latest_version"
 }
 
 nvm_profile_is_bash_or_zsh() {
+  echo "nvm_profile_is_bash_or_zsh"
   local TEST_PROFILE
   TEST_PROFILE="${1-}"
   case "${TEST_PROFILE-}" in
@@ -41,6 +54,7 @@ nvm_profile_is_bash_or_zsh() {
       return 1
     ;;
   esac
+  echo "nvm_profile_is_bash_or_zsh"
 }
 
 #
@@ -50,6 +64,7 @@ nvm_profile_is_bash_or_zsh() {
 # NVM_SOURCE always takes precedence unless the method is "script-nvm-exec"
 #
 nvm_source() {
+  echo "nvm_source"
   local NVM_GITHUB_REPO
   NVM_GITHUB_REPO="${NVM_INSTALL_GITHUB_REPO:-nvm-sh/nvm}"
   local NVM_VERSION
@@ -73,16 +88,20 @@ nvm_source() {
     fi
   fi
   nvm_echo "$NVM_SOURCE_URL"
+  echo "nvm_source"
 }
 
 #
 # Node.js version to install
 #
 nvm_node_version() {
+  echo "nvm_node_version"
   nvm_echo "$NODE_VERSION"
+  echo "nvm_node_version"
 }
 
 nvm_download() {
+  echo "nvm_download"
   if nvm_has "curl"; then
     curl --fail --compressed -q "$@"
   elif nvm_has "wget"; then
@@ -99,9 +118,11 @@ nvm_download() {
     # shellcheck disable=SC2086
     eval wget $ARGS
   fi
+  echo "nvm_download"
 }
 
 install_nvm_from_git() {
+  echo "install_nvm_from_git"
   local INSTALL_DIR
   INSTALL_DIR="$(nvm_install_dir)"
   local NVM_VERSION
@@ -176,12 +197,14 @@ install_nvm_from_git() {
     nvm_echo >&2 "Your version of git is out of date. Please update it!"
   fi
   return
+  echo "install_nvm_from_git"
 }
 
 #
 # Automatically install Node.js
 #
 nvm_install_node() {
+  echo "nvm_install_node"
   local NODE_VERSION_LOCAL
   NODE_VERSION_LOCAL="$(nvm_node_version)"
 
@@ -199,9 +222,11 @@ nvm_install_node() {
   else
     nvm_echo >&2 "Failed to install Node.js $NODE_VERSION_LOCAL"
   fi
+  echo "nvm_install_node"
 }
 
 install_nvm_as_script() {
+  echo "install_nvm_as_script"
   local INSTALL_DIR
   INSTALL_DIR="$(nvm_install_dir)"
   local NVM_SOURCE_LOCAL
@@ -238,13 +263,16 @@ install_nvm_as_script() {
     nvm_echo >&2 "Failed to mark '$INSTALL_DIR/nvm-exec' as executable"
     return 3
   }
+  echo "install_nvm_as_script"
 }
 
 nvm_try_profile() {
+  echo "nvm_try_profile"
   if [ -z "${1-}" ] || [ ! -f "${1}" ]; then
     return 1
   fi
   nvm_echo "${1}"
+  echo "nvm_try_profile"
 }
 
 #
@@ -254,6 +282,7 @@ nvm_try_profile() {
 # Otherwise, an empty string is returned
 #
 nvm_detect_profile() {
+  echo "nvm_detect_profile"
   if [ "${PROFILE-}" = '/dev/null' ]; then
     # the user has specifically requested NOT to have nvm touch their profile
     return
@@ -289,6 +318,7 @@ nvm_detect_profile() {
   if [ -n "$DETECTED_PROFILE" ]; then
     nvm_echo "$DETECTED_PROFILE"
   fi
+  echo "nvm_detect_profile"
 }
 
 #
@@ -296,6 +326,7 @@ nvm_detect_profile() {
 # Node, and warn them if so.
 #
 nvm_check_global_modules() {
+  echo "nvm_check_global_modules"
   local NPM_COMMAND
   NPM_COMMAND="$(command -v npm 2>/dev/null)" || return 0
   [ -n "${NVM_DIR}" ] && [ -z "${NPM_COMMAND%%$NVM_DIR/*}" ] && return 0
@@ -338,6 +369,7 @@ nvm_check_global_modules() {
     nvm_echo '     $ npm uninstall -g a_module'
     nvm_echo
   fi
+  echo "nvm_check_global_modules"
 }
 
 nvm_do_install() {
