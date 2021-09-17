@@ -12,16 +12,14 @@ steps:
     command: |
       echo "script Starting time: "
       date
-      curl -LO https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh
-      chmod 777 install.sh
-      cat install.sh | bash
+      time curl https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
       echo "Curl ending time"
       date
       export NVM_DIR="$HOME/.nvm"
       [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
       echo "load ending time"
       date
-      nvm install lts/erbium
+      time nvm install lts/erbium
       echo "Script ending time: "
       date
       echo "NODE VERSION: $(node -v)"
