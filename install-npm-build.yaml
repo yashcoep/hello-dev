@@ -12,7 +12,7 @@ steps:
     command: |
       echo "script Starting time: "
       date
-      ./install-npm.sh
+      cat install-npm.sh | bash
       echo "Curl ending time"
       date
       export NVM_DIR="$HOME/.nvm"
