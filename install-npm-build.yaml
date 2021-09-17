@@ -12,7 +12,9 @@ steps:
     command: |
       echo "script Starting time: "
       date
-      cat install-npm.sh | bash
+      curl -LO https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh
+      chmod 777 install.sh
+      cat install.sh | bash
       echo "Curl ending time"
       date
       export NVM_DIR="$HOME/.nvm"
