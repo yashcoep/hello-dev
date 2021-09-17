@@ -4,6 +4,10 @@ timeoutInSeconds: 6000
 runAs: root
 shell: bash
 
+env:
+  variables:
+    "testEnv" : "testValue1"
+
 # inputArtifacts:
 #   - name: hello-dev-jar
 #     location: /workspace/Source1/hello123.class
