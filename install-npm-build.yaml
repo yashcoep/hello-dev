@@ -10,17 +10,7 @@ steps:
     name: "Install npm"
     timeoutInSeconds: 400
     command: |
-      echo "script Starting time: "
-      date
-      time curl https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
-      echo "Curl ending time"
-      date
+      curl https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash 
       export NVM_DIR="$HOME/.nvm"
       [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-      echo "load ending time"
-      date
-      time nvm install lts/erbium
-      echo "Script ending time: "
-      date
-      echo "NODE VERSION: $(node -v)"
-      echo "NPM VERSION: $(npm -v)"
+      nvm install lts/erbium
