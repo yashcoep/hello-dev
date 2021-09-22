@@ -10,10 +10,10 @@ steps:
     timeoutInSeconds: 400
     command: |
       # 'Source1' in the below command is one of the build source name
-      cd Source1
+      cd ${OCI_WORKSPACE_DIR}/Source1
       mvn clean install
       # Navigating to Source2 repository. 'Source2' in the below command is one of the build source name.
-      cd Source2
+      cd ${OCI_WORKSPACE_DIR}/Source2
       mvn clean install
       # Navigating to the primary source repository.
       cd $OCI_PRIMARY_SOURCE_DIR
