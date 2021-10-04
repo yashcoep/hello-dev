@@ -11,7 +11,7 @@ env:
     - patch_number
     - build_Result
     - test_env
-    - test_env1
+    -test_env1
 
 inputArtifacts:
   - name: hello-dev-jar
