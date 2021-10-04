@@ -116,4 +116,4 @@ outputArtifacts:
 #     location: src/main/java/org/example/HelloWorld.class
   - name: hello-dev-image
     type: DOCKER_IMAGE
-    location: iad.ocir.io/id204we8d65n/balaregistry/hello-bala:abzz
+    location: iad.ocir.io/id204we8d65n/balaregistry/hello-bala:1.0
