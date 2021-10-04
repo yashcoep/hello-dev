@@ -4,11 +4,11 @@ timeoutInSeconds: 6000
 runAs: root
 shell: bash
 env:
-  variables:
+  variabls:
     "testEnv" : "testValue"
 
 steps:
-  - type: Comman
+  - type: Command
     name: "Build Source"
     timeoutInSeconds: 400
     command: |
