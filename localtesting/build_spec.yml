@@ -1,4 +1,3 @@
-version: 0.1
 component: build
 timeoutInSeconds: 6000
 runAs: root
@@ -11,7 +10,7 @@ env:
     - patch_number
     - build_Result
     - test_env
-    -test_env1
+    - test_env1
 
 inputArtifacts:
   - name: hello-dev-jar
