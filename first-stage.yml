@@ -27,3 +27,6 @@ outputArtifacts:
   - name: hello-dev-jar
     type: BINARY
     location: target/hello-dev-1.0-SNAPSHOT.jar
+  - name: hello-dev-image
+    type: DOCKER_IMAGE
+    location: abc
