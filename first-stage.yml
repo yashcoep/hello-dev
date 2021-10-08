@@ -29,4 +29,4 @@ outputArtifacts:
     location: target/hello-dev-1.0-SNAPSHOT.jar
   - name: hello-dev-image
     type: DOCKER_IMAGE
-    location: abc
+    location: target/hello-dev-1.0-SNAPSHOT.jar
