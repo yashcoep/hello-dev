@@ -59,7 +59,7 @@ steps:
     onFailure:
       - type: Command
         timeoutInSeconds: 400
-        shell: shell
+        shell: bash
         command: |
           echo "Handling Failure"
           echo "Failure successfully handled"
