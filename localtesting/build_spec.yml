@@ -55,11 +55,10 @@ steps:
       echo "commit7" > output.txt
       patch_number=100
       javac HelloWorld.java
-      abc
     onFailure:
       - type: Command
         timeoutInSeconds: 400
-        shell: bash
+        shell: /bin/sh
         command: |
           echo "Handling Failure"
           echo "Failure successfully handled"
