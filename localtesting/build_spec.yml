@@ -21,7 +21,7 @@ steps:
   - type: Command
     name: "Build Source"
     timeoutInSeconds: 4000
-    shell: bash
+    shell: /bin/sh
     command: |
       echo $PATH
       PATH=$PATH:/test
