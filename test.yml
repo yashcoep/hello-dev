@@ -26,7 +26,6 @@ steps:
     command: |
       # oci cli pre configured with build pipeline resource principal
       oci os ns get
-      javac HelloWorld.java
     onFailure:
       - type: Command
         timeoutInSeconds: 400
