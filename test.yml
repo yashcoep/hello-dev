@@ -1,0 +1,65 @@
+version: 0.1
+component: build
+timeoutInSeconds: 6000
+shell: shell
+
+# Variables
+env:
+  variables:
+    "testEnv" : "testValue1"
+  vaultVariables:
+    docker_registry_password : <secret-ocid>
+  exportedVariables:
+    - patch_number
+    - build_Result
+
+inputArtifacts:
+  - name: public-artifact
+    url: https://raw.githubusercontent.com/apache/kafka/trunk/README.md  # url should be publicly accesible
+    location: /workspace/Source/readme.md 
+
+steps:
+  - type: Command
+    name: "Build Source"
+    timeoutInSeconds: 4000
+    shell: /bin/sh
+    command: |
+      # oci cli pre configured with build pipeline resource principal
+      oci os ns get
+      javac HelloWorld.java
+    onFailure:
+      - type: Command
+        timeoutInSeconds: 400
+        shell: /bin/sh
+        command: |
+          echo "Handling Failure"
+          build_result=FAILURE
+          echo "Failure successfully handled"
+        timeoutInSeconds: 400
+  - type: Command
+    timeoutInSeconds: 400
+    name: "Dockerizer & Test"
+    shell: bash
+    command: |
+      docker build -t test-image .
+    onFailure:
+      - type: Command
+        command: |
+          echo "Handling Failure"
+          build_result=FAILURE
+          echo "Failure successfully handled"
+        timeoutInSeconds: 400
+  - type: Command
+    timeoutInSeconds: 400
+    name: "Dockerizer & Test"
+    command: |
+      build_result=SUCESS
+      patch_number==`echo ${OCI_BUILD_RUN_ID} | rev | cut -c 1-7`
+        
+outputArtifacts:
+  - name: kube-manifest
+    type: BINARY
+    location: ${OCI_WORKSPACE_DIR}/Source1/test.yml
+  - name: hello-dev-image
+    type: DOCKER_IMAGE
+    location: test-image
