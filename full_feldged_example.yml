@@ -35,6 +35,7 @@ steps:
         shell: /bin/sh
         command: |
           echo "Handling Failure"
+          build_result=FAILURE
           echo "Failure successfully handled"
         timeoutInSeconds: 400
   - type: Command
@@ -46,8 +47,15 @@ steps:
       - type: Command
         command: |
           echo "Handling Failure"
+          build_result=FAILURE
           echo "Failure successfully handled"
         timeoutInSeconds: 400
+  - type: Command
+    timeoutInSeconds: 400
+    name: "Dockerizer & Test"
+    command: |
+      build_result=SUCESS
+      patch_number==`echo ${OCI_BUILD_RUN_ID} | rev | cut -c 1-7`
         
 outputArtifacts:
   - name: kube-manifest
