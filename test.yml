@@ -59,7 +59,7 @@ steps:
 outputArtifacts:
   - name: kube-manifest
     type: BINARY
-    location: ${OCI_WORKSPACE_DIR}/Source/test.yml
+    location: ${OCI_WORKSPACE_DIR}/Source1/test.yml
   - name: hello-dev-image
     type: DOCKER_IMAGE
     location: test-image
