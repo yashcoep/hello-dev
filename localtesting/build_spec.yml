@@ -21,7 +21,7 @@ steps:
   - type: Command
     name: "Build Source"
     timeoutInSeconds: 4000
-    shell: /bin/sh
+#     shell: /bin/sh
     command: |
       echo $PATH
       PATH=$PATH:/test
@@ -58,7 +58,7 @@ steps:
     onFailure:
       - type: Command
         timeoutInSeconds: 400
-        shell: /bin/sh
+#         shell: /bin/sh
         command: |
           echo "Handling Failure"
           echo "Failure successfully handled"
