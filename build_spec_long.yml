@@ -18,6 +18,7 @@ env:
 steps:
   - type: Command
     name: "Build Source"
+    shell: /bin/sh
     timeoutInSeconds: 400
     command: |
       docker pull couchbase
