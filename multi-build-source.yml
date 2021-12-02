@@ -1,0 +1,29 @@
+version: 0.1
+component: build
+timeoutInSeconds: 6000
+runAs: root
+shell: bash
+
+steps:
+  - type: Command
+    name: "Build Source"
+    timeoutInSeconds: 400
+    command: |
+      echo "I am in primary source directory by default 'workspace/Source1'"
+      echo "This build stage have 2 build sources with 'name' Source1 and Source2 respectively."
+      
+      # navigating to Source2 directory and creating output1.txt file
+      cd /workspace/Source2
+      echo "output" > output1.txt
+      
+      # navigating back to Source1 primary build source directory and creating output2.txt.
+      cd /workspace/Source1
+      echo "output" > output2.txt
+   
+outputArtifacts:
+  - name: output1
+    type: BINARY
+    location: ${OCI_WORKSPACE_DIR}/Source2/output1.txt
+  - name: output2
+    type: BINARY
+    location: ${OCI_WORKSPACE_DIR}/Source1/output2.txt
