@@ -15,6 +15,7 @@ steps:
     command: |
       echo "hello world"
       echo $TEST_DIR
+      echo $OCI_PRIMARY_SOURCE_NAME
       echo $OCI_PRIMARY_SOURCE_COMMIT_HASH
       echo $OCI_PRIMARY_SOURCE_SOURCE_URL
       echo $OCI_PRIMARY_SOURCE_SOURCE_BRANCH_NAME
