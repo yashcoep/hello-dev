@@ -1,0 +1,31 @@
+version: 0.1
+component: build
+timeoutInSeconds: 6000
+runAs: root
+shell: bash
+env:
+  variables:
+    TEST_DIR : "testValue1"
+    IMAGE_VERSION: "1.0"
+
+steps:
+  - type: Command
+    name: "Build Source"
+    timeoutInSeconds: 400
+    command: |
+      echo $TEST_DIR
+      echo $OCI_PRIMARY_SOURCE_COMMIT_HASH
+      echo $OCI_PRIMARY_SOURCE_SOURCE_URL
+      echo $OCI_PRIMARY_SOURCE_SOURCE_BRANCH_NAME
+      TEST_DIR=/workspace
+      echo "output" > output1.txt
+      docker pull hello-world:latest
+      docker tag hello-world:latest hello-world:$IMAGE_VERSION
+      
+outputArtifacts:
+  - name: hello-world-image
+    type: DOCKER_IMAGE
+    location: hello-world:${IMAGE_VERSION}
+  - name: output1
+    type: BINARY
+    location: ${TEST_DIR}/output1.txt
