@@ -13,6 +13,7 @@ steps:
     name: "Build Source"
     timeoutInSeconds: 400
     command: |
+      echo "hello world"
       echo $TEST_DIR
       echo $OCI_PRIMARY_SOURCE_COMMIT_HASH
       echo $OCI_PRIMARY_SOURCE_SOURCE_URL
