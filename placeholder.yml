@@ -19,10 +19,12 @@ steps:
       echo $OCI_PRIMARY_SOURCE_COMMIT_HASH
       echo $OCI_PRIMARY_SOURCE_SOURCE_URL
       echo $OCI_PRIMARY_SOURCE_SOURCE_BRANCH_NAME
-      TEST_DIR=/workspace
+      TEST_DIR=output1.txt
       echo "output" > output1.txt
       docker pull hello-world:latest
       docker tag hello-world:latest hello-world:$IMAGE_VERSION
+      docker images
+      echo $IMAGE_VERSION
       
 outputArtifacts:
   - name: hello-world-image
@@ -30,4 +32,4 @@ outputArtifacts:
     location: hello-world:${IMAGE_VERSION}
   - name: output1
     type: BINARY
-    location: ${TEST_DIR}/output1.txt
+    location: ${TEST_DIR}
