@@ -7,7 +7,7 @@ env:
   variables:
     "testEnv" : "testValue1"
   exportedVariables:
-    - testEnv
+    -testEnv
     - push_result
     - testEnv1
 
