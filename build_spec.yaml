@@ -10,6 +10,7 @@ env:
     - testEnv
     - push_result
     - testEnv1
+    - abs_var
 
 # inputArtifacts:
 #   - name: hello-dev-jar
