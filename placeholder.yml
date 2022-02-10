@@ -7,6 +7,8 @@ env:
   variables:
     TEST_DIR : "testValue1"
     IMAGE_VERSION: "1.0"
+  exportedVariables:
+    - NOT_SET_VAR
 
 steps:
   - type: Command
