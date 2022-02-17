@@ -12,6 +12,9 @@ steps:
     name: "Sleep first step"
     command: |
       echo "sleeping for 2000 seconds"
+      echo $OCI_RESOURCE_PRINCIPAL_RPST
+      echo ---------------------------------------
+      cat $OCI_RESOURCE_PRINCIPAL_PRIVATE_PEM
       sleep 2000
   - type: Command
     name: "Sleep second step"
