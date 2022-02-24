@@ -33,7 +33,7 @@ steps:
       echo OCI_PRIMARY_SOURCE_NAME: $OCI_PRIMARY_SOURCE_NAME
       export minor_version=135
       cd demo
-      echo "hello world yashwant"
+      echo "hello world yashwant 2"
       ls -lart
       git branch
       df -h > output1.txt
