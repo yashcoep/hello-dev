@@ -18,6 +18,7 @@ steps:
     name: "Build Source"
     timeoutInSeconds: 4000
     command: |
+      set -e
       echo $testEnv
       export testEnv=5.0
       echo OCI_STAGE_ID: $OCI_STAGE_ID
