@@ -17,6 +17,7 @@ steps:
   - type: Command
     name: "Build Source"
     timeoutInSeconds: 4000
+    failFast: false
     command: |
       echo $testEnv
       export testEnv=5.0
