@@ -2,7 +2,7 @@ version: 0.1
 component: build
 timeoutInSeconds: 6000
 runAs: root
-shell: bash
+shell: powershell
 env:
   variables:
     "testEnv" : "testValue1"
