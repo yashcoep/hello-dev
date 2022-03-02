@@ -50,6 +50,7 @@ steps:
   - type: Command
     timeoutInSeconds: 400
     name: "Dockerizer & Test"
+    failFast: false
     command: |
       echo "WORKED....."
       sleep 60s
