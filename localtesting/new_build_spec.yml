@@ -17,7 +17,6 @@ steps:
   - type: Command
     name: "Build Source"
     timeoutInSeconds: 4000
-    failFast: false
     command: |
       echo $testEnv
       export testEnv=5.0
@@ -33,11 +32,6 @@ steps:
       echo OCI_BUILD_STAGE_NAME: $OCI_BUILD_STAGE_NAME
       echo OCI_PRIMARY_SOURCE_NAME: $OCI_PRIMARY_SOURCE_NAME
       export minor_version=135
-      echo "hello world yashwant 2"
-      echo "trying wrong command"
-      cd demoYash
-      ech
-      echo "tried wrong command"
       ls -lart
       git branch
       df -h > output1.txt
