@@ -17,6 +17,7 @@ steps:
     failFast: false
     command: |
       echo $testEnv
+      xyz
       dmv
       export testEnv=5.0
       echo OCI_STAGE_ID: $OCI_STAGE_ID
