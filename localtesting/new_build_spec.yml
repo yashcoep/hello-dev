@@ -38,7 +38,6 @@ steps:
       echo "commit7" > output.txt
       javac HelloWorld.java
       sleep 2m 30s
-      xyz
     onFailure:
       - type: Command
         timeoutInSeconds: 400
