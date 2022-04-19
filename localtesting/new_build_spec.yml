@@ -14,7 +14,7 @@ steps:
   - type: Command
     name: "Build Source"
     timeoutInSeconds: 4000
-    failFast: true
+    failFast: false
     command: |
       echo $testEnv
       xyz
