@@ -14,6 +14,7 @@ steps:
   - type: Command
     name: "Build Source"
     timeoutInSeconds: 4000
+    failOnStdErr: true
     command: |
       echo $testEnv
       xyz
@@ -49,7 +50,6 @@ steps:
   - type: Command
     timeoutInSeconds: 400
     name: "Dockerizer & Test"
-    failFast: false
     command: |
       echo "WORKED....."
       sleep 60s
