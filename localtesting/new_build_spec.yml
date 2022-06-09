@@ -42,8 +42,10 @@ steps:
     onFailure:
       - type: Command
         timeoutInSeconds: 400
+        failImmediatelyOnError: true
         command: |
           echo "Handling Failure"
+          test
           echo "Failure successfully handled"
         timeoutInSeconds: 400
         runAs: root
