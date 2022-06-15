@@ -43,6 +43,7 @@ steps:
       - type: Command
         timeoutInSeconds: 400
         failImmediatelyOnError: true
+        name: "handle failure step 1"
         command: |
           echo "Handling Failure"
           test
