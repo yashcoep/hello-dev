@@ -46,7 +46,7 @@ steps:
       - type: Command
         timeoutInSeconds: 400
         name: "handle failure step 1"
-        failImmediatelyOnError: false
+        failImmediatelyOnError: true
         command: |
           echo "Handling Failure"
           test
