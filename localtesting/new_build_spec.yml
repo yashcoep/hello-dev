@@ -3,7 +3,6 @@ component: build
 timeoutInSeconds: 6000
 runAs: root
 shell: bash
-failImmediatelyOnError: false
 env:
   variables:
     "testEnv" : "testValue1"
