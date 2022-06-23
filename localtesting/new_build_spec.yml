@@ -3,7 +3,7 @@ component: build
 timeoutInSeconds: 6000
 runAs: root
 shell: bash
-failImmediatelyOnError: true
+failImmediatelyOnError: false
 env:
   variables:
     "testEnv" : "testValue1"
@@ -16,6 +16,7 @@ steps:
   - type: Command
     name: "Build Source"
     timeoutInSeconds: 4000
+    failImmediatelyOnError: true
     command: |
       echo $testEnv
       (
