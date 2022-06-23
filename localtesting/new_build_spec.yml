@@ -3,6 +3,7 @@ component: build
 timeoutInSeconds: 6000
 runAs: root
 shell: bash
+failImmediatelyOnError: true
 env:
   variables:
     "testEnv" : "testValue1"
@@ -44,6 +45,7 @@ steps:
       - type: Command
         timeoutInSeconds: 400
         name: "handle failure step 1"
+        failImmediatelyOnError: false
         command: |
           echo "Handling Failure"
           test
