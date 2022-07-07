@@ -16,7 +16,7 @@ steps:
   - type: Command
     name: "Build Source"
     timeoutInSeconds: 4000
-    failImmediatelyOnError: true
+    failImmediatelyOnError: false
     command: |
       echo $testEnv
       (
