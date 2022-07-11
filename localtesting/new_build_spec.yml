@@ -48,7 +48,8 @@ steps:
 
 outputArtifacts:
   - name: output1
-    location: ${OCI_WORKSPACE_DIR}/Source/output.txt
+    type: TEXT
+    location: ${OCI_WORKSPACE_DIR}/Source/output1.txt
 #   - name: output
 #     type: BINARY
 #     location: src/main/java/org/example/output.txt
